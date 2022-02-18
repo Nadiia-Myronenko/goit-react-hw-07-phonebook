@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { SearchInput } from "./SearchField.styled";
-import contactsActions from "../../redux/contacts/conacts-actions";
+import * as contactsActions from "../../redux/contacts/conacts-actions";
 import { useSelector, useDispatch } from "react-redux";
 
 const SearchField = () => {
