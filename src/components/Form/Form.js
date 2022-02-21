@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ContactsForm, InputField, Button } from "./Form.styled";
 import PropTypes from "prop-types";
-import contactsOperations from "../../redux/contacts/contacts-operations";
+import { addContact } from "../../redux/contacts/contacts-operations";
 import { useDispatch } from "react-redux";
 
 const Form = () => {
@@ -27,7 +27,7 @@ const Form = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(contactsOperations.addContact({ name, number }));
+    dispatch(addContact({ name, number }));
     reset();
   };
 

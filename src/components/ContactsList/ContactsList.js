@@ -7,7 +7,10 @@ import {
   Number,
   DeleteButton,
 } from "./ContactsList.styled";
-import contactsOperations from "../../redux/contacts/contacts-operations";
+import {
+  fetchContacts,
+  deleteContact,
+} from "../../redux/contacts/contacts-operations";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
@@ -23,11 +26,11 @@ const ContactsList = () => {
   const contacts = useSelector((state) =>
     getVisibleContacts(state.contacts.items, state.contacts.filter)
   );
+  console.log(contacts);
   const dispatch = useDispatch();
-  const onDeleteContact = (id) =>
-    dispatch(contactsOperations.deleteContact(id));
+  const onDeleteContact = (id) => dispatch(deleteContact(id));
 
-  useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch]);
+  useEffect(() => dispatch(fetchContacts()), [dispatch]);
 
   return (
     <List>
