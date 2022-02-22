@@ -13,6 +13,7 @@ import {
 } from "../../redux/contacts/contacts-operations";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import selectors from "../../redux/contacts/contats-selectors";
 
 const getVisibleContacts = (allContacts, filter) => {
   const normalizeFilter = filter.toLowerCase();
@@ -24,7 +25,10 @@ const getVisibleContacts = (allContacts, filter) => {
 
 const ContactsList = () => {
   const contacts = useSelector((state) =>
-    getVisibleContacts(state.contacts.items, state.contacts.filter)
+    getVisibleContacts(
+      selectors.getContacts(state),
+      selectors.getContacts(state)
+    )
   );
   console.log(contacts);
   const dispatch = useDispatch();

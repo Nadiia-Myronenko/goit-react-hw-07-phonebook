@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import { SearchInput } from "./SearchField.styled";
 import * as contactsActions from "../../redux/contacts/conacts-actions";
 import { useSelector, useDispatch } from "react-redux";
+import selectors from "../../redux/contacts/contats-selectors";
 
 const SearchField = () => {
-  const value = useSelector((state) => state.contacts.filter);
+  const value = useSelector((state) => selectors.getFilter(state));
   const dispatch = useDispatch();
 
   return (
