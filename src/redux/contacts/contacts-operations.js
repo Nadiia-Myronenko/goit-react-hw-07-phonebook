@@ -19,7 +19,7 @@ export const addContact = createAsyncThunk(
       number: data.number,
       completed: false,
     };
-    const response = axios.post("/contacts", contact);
+    const response = await axios.post("/contacts", contact);
     return response.data;
   }
 );
@@ -27,7 +27,7 @@ export const addContact = createAsyncThunk(
 export const deleteContact = createAsyncThunk(
   "contacts/deleteContact",
   async (contactId) => {
-    const response = axios.delete(`/contacts/${contactId}`);
+    const response = await axios.delete(`/contacts/${contactId}`);
     return response.data;
   }
 );

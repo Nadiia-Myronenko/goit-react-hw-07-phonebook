@@ -11,6 +11,7 @@ const App = () => {
       <Form />
       <h2>Contacts</h2>
       <SearchField />
+
       <ContactsList />
     </Wrapper>
   );
